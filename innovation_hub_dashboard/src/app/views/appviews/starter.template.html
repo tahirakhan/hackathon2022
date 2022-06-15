@@ -1,6 +1,7 @@
 <style type="text/css">
   .release-bar {
     border-radius: 5px;
+    border-top: 1px #C0C0C0 solid;
     margin: 5px 0;
     padding: 3px 0px 3px 10px;
     background-color: rgb(74, 133, 233);
@@ -9,14 +10,14 @@
   .release-bar-box {
     padding: 0;
     cursor: pointer;
-    border-left: 1px #dadce0 solid;
-    border-right: 1px #dadce0 solid;
-    border-bottom: 1px #dadce0 solid;
+    border-left: 1px #C0C0C0 solid;
+    border-right: 1px #C0C0C0 solid;
+    border-bottom: 1px #C0C0C0 solid;
   }
 </style>
 
 
-<div class="row"  style="background-color: #E8E8E8">
+<div class="row"  style="background-color: #E8E8E8;border-bottom: 1px #C0C0C0 solid;">
   <div class="col-md-2 ibox-content" style="background-color: #E8E8E8">
     <h2>Releases <i class="fa fa-solid fa-arrow-right"></i></h2>
     <h2>Teams <i class="fa fa-solid fa-arrow-down"></i></h2>
@@ -50,11 +51,11 @@
 
 <!-- TEAMS -->
 <div class="release-bar-box" *ngFor="let team of teams">
-  <div class="col-md-2 ibox-title" (click)="openModal(teamModal, team.name)">
-    <h1>{{ team.name }}</h1>
+  <div class="col-md-2 ibox-title row no-gutters" style="background-color: inherit !important;" (click)="openModal(teamModal, team.name)">
+    <h2 style="padding: 20px;">{{ team.name }}</h2>
   </div>
   <!-- ITEMS -->
-  <div style="display: grid;">
+  <div style="display: grid;" class="row no-gutters">
     <div class="release-bar"
       *ngFor="let item of team.items"
       [ngStyle]="{width: item.width + '%', marginLeft: item.margin + '%'}"
