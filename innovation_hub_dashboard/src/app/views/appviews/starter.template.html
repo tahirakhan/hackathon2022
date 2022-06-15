@@ -16,48 +16,42 @@
 </style>
 
 
-<div class="row" style="">
-  <div
-    class="col-md-2"
-    style="
-      border: 1px solid rgb(145, 144, 144);
-      padding-right: 0px;
-      padding-left: 0px;
-      padding-top: 19.5px;
-      text-align: center;
-      background-color: #f9bc2c !important;
-    "
-  >
-    <div>Releases</div>
-    <i class="fa fa-solid fa-arrow-right"></i>
-    <div style="background-color: black">
-      <div style="color: white">Teams</div>
-      <i class="fa fa-solid fa-arrow-down"></i>
-    </div>
+<div class="row"  style="background-color: #E8E8E8">
+  <div class="col-md-2 ibox-content" style="background-color: #E8E8E8">
+    <h2>Releases <i class="fa fa-solid fa-arrow-right"></i></h2>
+    <h2>Teams <i class="fa fa-solid fa-arrow-down"></i></h2>
+
   </div>
   <!-- RELEASES -->
   <div
     *ngFor="let release of releases"
-    class="col-md-2"
-    style="
-      border: 1px solid rgb(145, 144, 144);
-      padding: 0px;
-      text-align: center;
-      background-color: #f9bc2c !important;
-    "
-  >
-    <h2>{{ release.name }}</h2>
-    <div style="background-color: black">
-      <div style="color: white">{{ release.earlyAccess }}</div>
-      <div>{{ release.productionRelease }}</div>
+    class="col-md-2"  style="background-color: #E8E8E8">
+      <div style="background-color: #E8E8E8" class="row no-gutters">
+
+        <div class="ibox-content " style="background-color: #E8E8E8">
+          <h1 class="no-margins">{{ release.name }}</h1>
+        </div>
+
+        <div class="ibox-title" style="background-color: #E8E8E8">
+          <div class="ibox-tools">
+            <span class="label label-primary float-right">Early Access: {{ release.earlyAccess }}</span>
+          </div>
+        </div>
+
+        <div class="ibox-title" style="background-color: #E8E8E8">
+          <div class="ibox-tools">
+            <span class="label label-info float-right">Production Access: {{ release.productionRelease }}</span>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
 </div>
 
 <!-- TEAMS -->
 <div class="release-bar-box" *ngFor="let team of teams">
-  <div class="col-md-2" (click)="openModal(teamModal, team.name)">
-    {{ team.name }}
+  <div class="col-md-2 ibox-title" (click)="openModal(teamModal, team.name)">
+    <h1>{{ team.name }}</h1>
   </div>
   <!-- ITEMS -->
   <div style="display: grid;">
