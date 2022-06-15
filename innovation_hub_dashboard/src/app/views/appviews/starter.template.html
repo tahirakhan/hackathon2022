@@ -1,3 +1,21 @@
+<style type="text/css">
+  .release-bar {
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 3px 0px 3px 10px;
+    background-color: rgb(74, 133, 233);
+    color: white;
+  }
+  .release-bar-box {
+    padding: 0;
+    cursor: pointer;
+    border-left: 1px #dadce0 solid;
+    border-right: 1px #dadce0 solid;
+    border-bottom: 1px #dadce0 solid;
+  }
+</style>
+
+
 <div class="row" style="">
   <div
     class="col-md-2"
@@ -37,16 +55,15 @@
 </div>
 
 <!-- TEAMS -->
-<div *ngFor="let team of teams">
-  <div class="col-md-2" style="padding: 0; cursor: pointer" (click)="openModal(teamModal, team.name)">
+<div class="release-bar-box" *ngFor="let team of teams">
+  <div class="col-md-2" (click)="openModal(teamModal, team.name)">
     {{ team.name }}
   </div>
   <!-- ITEMS -->
-  <div style="display: grid">
-    <div
+  <div style="display: grid;">
+    <div class="release-bar"
       *ngFor="let item of team.items"
       [ngStyle]="{width: item.width + '%', marginLeft: item.margin + '%'}"
-      style="border: 1px solid black; margin-bottom: 5px; margin-top: 5px"
     >
       {{ item.name }}
     </div>
