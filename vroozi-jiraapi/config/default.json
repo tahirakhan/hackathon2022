@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://innovationhub:Ob0L9PNCEcium1Y4@innovationhub.ijafxgf.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "axiom-jwt-secret",
+    "sheet-data-url": "http://10.2.1.192:7171/sheet-data/teams",
+    "jira-token":"<JIRA-KEY>"
+}
