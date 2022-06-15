@@ -1,0 +1,174 @@
+/* Import main Inspinia style */
+@import "assets/styles/style";
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(241, 241, 241);
+  font-family: Arial, Helvetica, sans-serif;
+  // display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 100%;
+  justify-content: center;
+  clear: none;
+  width: 1200px;
+}
+
+.container .header {
+  width: 100%;
+  display: flex;
+}
+
+.backlog {
+  min-width: 20%;
+  width: 20%;
+  padding: 10px;
+  background-color: rgb(195, 205, 223);
+}
+
+.teams {
+  min-width: 20%;
+  width: 20%;
+  padding: 10px;
+  background-color: rgb(236, 236, 152);
+}
+
+.releases {
+  min-width: 80%;
+  width: 80%;
+  background-color: rgb(240, 199, 18);
+  display: flex;
+  justify-content: space-around;
+}
+.release {
+
+
+}
+
+.release .header{
+  color: white;
+  justify-content: space-around;
+  font-weight: bold;
+  padding-top: 10px;
+
+}
+.release .body{
+  padding: 15px;
+  font-size: 10px;
+  width: max-content;
+}
+
+.container .row {
+     display: flex !important;
+}
+
+.row .backlog {
+  width: 20%;
+  min-width: 20%;
+  color: aquamarine;
+  background-color: rebeccapurple;
+}
+
+.row .teams {
+  width: 20%;
+  min-width: 20%;
+  color: aquamarine;
+  background-color: rebeccapurple;
+}
+
+.row .releases {
+  background-color: aquamarine;
+}
+
+.backlog-item {
+  font-size: 12px;
+  width: 200px;
+height: 20px;
+border: 1px solid rgb(0, 0, 0);
+background-color: white;
+color: black;
+margin-top: 10px;
+  border-radius: .5;
+  padding: 2px;
+
+}
+
+.row .teams {
+
+}
+
+.teams .resources {
+  display: flex;
+  flex-grow: 100;
+}
+
+.team-name {
+  color: rgb(26, 14, 1);
+  padding-top: 20px;
+}
+
+.team-mem {
+  font-size: 8px;
+  color: white;
+  padding-bottom: 20px;
+}
+
+.teams .resources .current{
+  float: left;
+  /* background-color: purple; */
+  width: 50%;
+  display: flex;
+  align-items:flex-end;
+
+}
+
+
+.teams .resources .hiring-need{
+  float: right;
+  width: 50%;
+  font-size: 8px;
+  align-items:flex-end;
+  display: flex;
+}
+
+.hiring-need {
+  justify-content: right;
+}
+.be .be-resource {
+  border: 1px solid rgb(255, 255, 255);
+  margin: 2px;
+  background-color: rgb(153, 233, 187);
+  color: black;
+  font-size: 8px;
+
+}
+.fe .fe-resource {
+  border: 1px solid rgb(255, 255, 255);
+  margin: 2px;
+
+  background-color: rgb(172, 161, 223);
+  color: black;
+  font-size: 8px;
+}
+
+.qa .qa-resource {
+  border: 1px solid rgb(255, 255, 255);
+  margin: 2px;
+
+  background-color: rgb(212, 117, 138);
+  color: black;
+  font-size: 8px;
+}
