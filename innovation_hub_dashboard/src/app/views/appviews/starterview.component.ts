@@ -44,7 +44,7 @@ public constructor(private modalService: BsModalService, public genericService: 
   ]
   this.teams = [
     {
-      name: 'team 1',
+      name: 'Purchase Manager',
       items: [
         {
           name: 'Item1',
@@ -65,7 +65,7 @@ public constructor(private modalService: BsModalService, public genericService: 
       ]
     },
     {
-      name: 'team 2',
+      name: 'Integration',
       items: [
         {
           name: 'Item1',
@@ -78,7 +78,7 @@ public constructor(private modalService: BsModalService, public genericService: 
       ]
     },
     {
-      name: 'team 3',
+      name: 'Budget Team',
       items: [
         {
           name: 'Item1',
@@ -91,7 +91,7 @@ public constructor(private modalService: BsModalService, public genericService: 
       ]
     },
     {
-      name: 'team 4',
+      name: 'SWAT',
       items: [
         {
           name: 'Item1',

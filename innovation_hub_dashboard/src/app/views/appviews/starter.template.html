@@ -49,6 +49,8 @@
     </div>
 </div>
 
+
+<div class="graph-lines">
 <!-- TEAMS -->
 <div class="release-bar-box" *ngFor="let team of teams">
   <div class="col-md-2 ibox-title row no-gutters" style="background-color: inherit !important;" (click)="openModal(teamModal, team.name)">
@@ -59,37 +61,51 @@
     <div class="release-bar"
       *ngFor="let item of team.items"
       [ngStyle]="{width: item.width + '%', marginLeft: item.margin + '%'}"
+      style="
+        border: 1px solid black;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        color: #fff;
+        background-color: #1ab7ea;
+        border-color: rgba(0,0,0,0.2);
+        border-radius: 4px;
+        text-align: center;"
     >
       {{ item.name }}
     </div>
   </div>
 </div>
 
-
+</div>
 
 <ng-template #teamModal>
   <div class="ibox">
     <div class="ibox-title">
-        <h5>{{ teamData.name }}</h5>
+      <h5>{{ teamData.name }}</h5>
     </div>
-    <!-- <div class="ibox ">
+    <div class="ibox">
       <div class="ibox-content">
-
-          <table class="table table-bordered">
-              <thead>
+        <table class="table table-bordered">
+          <ng-container *ngFor="let role of teamData.roles">
+            <thead>
               <tr>
-                  <th>#</th>
-                  <th *ngFor="let role of teamData.roles">{{ role.name }}</th>
+                <th>#</th>
+                <th>{{ role.name }}</th>
               </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let role of teamData.roles">
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+            </thead>
+            <tbody>
+              <tr *ngFor="let resource of role.resources; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>
+                  {{resource.name}}
+                  <span *ngIf="resource.isLead"
+                    ><strong>(Team Lead)</strong></span
+                  >
+                </td>
+                <!-- <td>Otto</td>
+                  <td>@mdo</td> -->
               </tr>
-              <tr>
+              <!-- <tr>
                   <td>2</td>
                   <td>Jacob</td>
                   <td>Thornton</td>
@@ -100,19 +116,19 @@
                   <td>Larry</td>
                   <td>the Bird</td>
                   <td>@twitter</td>
-              </tr>
-              </tbody>
-          </table>
-
+              </tr> -->
+            </tbody>
+          </ng-container>
+        </table>
       </div>
-  </div> -->
-    <div class="ibox-content">
+    </div>
+    <!-- <div class="ibox-content">
         <div *ngFor="let role of teamData.roles" class="team-members">
           <strong>{{ role.name}} :</strong>
           <span *ngFor="let resource of role.resources; let last = last;">
             {{ resource.name }}{{last ? '' : ',&nbsp;'}}
           </span>
         </div>
-    </div>
-</div>
+    </div> -->
+  </div>
 </ng-template>
