@@ -13,6 +13,7 @@ public releases : any;
 public teams: any = [];
 public teamData: any;
 public selectedTab = 'tab-1';
+public currentBacklog;
 
 modalRef: BsModalRef;
 public constructor(private modalService: BsModalService, public genericService: GenericService) {
@@ -120,6 +121,7 @@ openModal(template: TemplateRef<any>, teamName: string) {
   this.genericService.getTeamDetails().subscribe((res: any) => {
     this.teamData = res.find(teamData => teamData.teamName === teamName);
     this.modalRef = this.modalService.show(template);
+    this.getBacklog();
   })
 }
 
@@ -128,9 +130,6 @@ closeModal() {
 }
 
 getInitials(nameString , i){
-  console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-  console.log('nameString', nameString);
-  console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
   const fullName = nameString.split(' ');
   console.log('fullName', fullName);
 
@@ -146,12 +145,16 @@ public ngOnInit():any {
 
 tabClicked(tabId) {
   this.selectedTab = tabId;
+  // if (this.selectedTab === 'tab-2') {
+  //   this.getBacklog();
+  // }
 }
 
-getBacklog(team: string) {
-  this.genericService.getBacklog(team).subscribe((res) => {
+getBacklog() {
+  this.genericService.getBacklog(this.teamData.teamName).subscribe((res: any) => {
+    this.currentBacklog = res.result[0];
     console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-    console.log('res', res);
+    console.log('currentBacklog', this.currentBacklog);
     console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
   })
 }

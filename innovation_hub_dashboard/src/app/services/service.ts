@@ -23,7 +23,7 @@ export class GenericService {
   }
 
   getBacklog(team) {
-    return this.http.get(`http://3.128.28.79:4000/api/issues/backlog/`, { params: team })
+    return this.http.get(`http://3.128.28.79:4000/api/issues/backlog?team=${team}`)
   }
 
 }
