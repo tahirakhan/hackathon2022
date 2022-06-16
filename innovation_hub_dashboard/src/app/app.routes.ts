@@ -12,7 +12,6 @@ import {LoginComponent} from "./views/appviews/login.component";
 
 import {BlankLayoutComponent} from "./components/common/layouts/blankLayout.component";
 import {BasicLayoutComponent} from "./components/common/layouts/basicLayout.component";
-import {TopNavigationLayoutComponent} from "./components/common/layouts/topNavigationlayout.component";
 
 export const ROUTES:Routes = [
   // Main redirect
