@@ -12,6 +12,7 @@ public nav:any;
 public releases : any;
 public teams: any = [];
 public teamData: any;
+public teamsDataForModal: any;
 public selectedTab = 'tab-1';
 public currentBacklog;
 
@@ -20,9 +21,13 @@ public constructor(private modalService: BsModalService, public genericService: 
 
 openModal(template: TemplateRef<any>, teamName: string) {
   this.genericService.getTeamDetails().subscribe((res: any) => {
+    this.teamsDataForModal = res;
     this.teamData = res.find(teamData => teamData.teamName === teamName);
     this.modalRef = this.modalService.show(template);
     this.getBacklog();
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+    console.log('teamsDataForModal', this.teamData)
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
   })
 }
 
@@ -56,6 +61,15 @@ getBacklog() {
 getReleases() {
   this.genericService.getReleases().subscribe((res: any) => {
     this.releases = res;
+  })
+}
+
+getTeamsDataForModal() {
+  this.genericService.getTeams().subscribe((res: any) => {
+    this.teamsDataForModal = res.result;
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+    console.log('teamsDataForModal', this.teamsDataForModal)
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
   })
 }
 

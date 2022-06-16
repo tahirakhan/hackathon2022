@@ -95,6 +95,13 @@
         </div>
       </div>
     </div>
+    <i style="font-size: 20px;
+    padding-left: 100px;
+    position: absolute;
+    top: 156px;
+    right: 65px;
+    cursor: pointer;"
+    class="fa fa-refresh" (click)="ngOnInit()"></i>
   </div>
 
   <!-- TEAMS -->
@@ -108,14 +115,14 @@
         <span
           class="label label-primary float-right"
           style="
-            font-size: 10px;
-            padding: 10px;
+            font-size: 13px;
+            padding: 10px 5px;
             margin-top: 5px;
             cursor: pointer;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-            width: 120px;
+            width: 140px;
             display: inline-block;"><i class="fa fa-group" style="padding-right: 5px;"></i>{{team.name}}
         </span>
       </div>
@@ -150,7 +157,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="ibox">
-          <div class="ibox-content">
+          <div class="ibox-content" style="border-color: white">
             <div class="clients-list">
               <div class="ibox-title" style="text-align: left; padding-bottom: 10px">
                 <h2>{{ teamData.teamName }}</h2>
@@ -164,6 +171,11 @@
                 <li>
                   <a class="nav-link" data-toggle="tab" [class.active]="selectedTab === 'tab-2'" (click)="tabClicked('tab-2')"
                     ><i class="fa fa-tasks"></i> Backlog</a
+                  >
+                </li>
+                <li>
+                  <a class="nav-link" data-toggle="tab" [class.active]="selectedTab === 'tab-3'" (click)="tabClicked('tab-3')"
+                    ><i class="fa fa-tasks"></i> Hiring Needs</a
                   >
                 </li>
               </ul>
@@ -223,6 +235,29 @@
 
                     </div>
                 </div>
+                </div>
+                <div id="tab-3" class="tab-pane active" [class.active]="selectedTab === 'tab-3'">
+                  <div class="ibox">
+                    <div class="ibox-content">
+                      <div *ngFor="let hiringNeed of teamData?.hiringNeeds; let i = index" class="dd" id="nestable2">
+                        <ol class="dd-list">
+                          <li class="dd-item" data-id="1">
+                            <div class="dd-handle" style="cursor: unset; font-size: 20px; font-weight: 600;">
+                              <span style="float: right !important; font-size: 14px;">
+                                  The hiring need for this role is :
+                                {{hiringNeed.total}}
+                              </span>
+                              <span class="label label-info" style="padding-top: 5px"
+                                ><i class="fa fa-user-plus"></i
+                              ></span>
+                              {{hiringNeed.resourceType}}
+                            </div>
+                            <span></span>
+                          </li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
