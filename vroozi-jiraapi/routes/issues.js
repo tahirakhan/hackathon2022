@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
   try {
     var t = await getTeamsList();
     var teamList = t.map((team) => team.teamName);
-    var teams = teamList;
+    var teams = teamList.sort((a, b) => a.teamName.localeCompare(b.teamName));
     var result = [];
     try {
       var counter = 0;
@@ -81,7 +81,7 @@ router.get("/backlog", async (req, res) => {
       var t = await getTeamsList();
       teamList = t.map((team) => team.teamName);
     }
-    var teams = teamList;
+    var teams = teamList.sort((a, b) => a.teamName.localeCompare(b.teamName));
     var result = [];
     try {
       var counter = 0;
