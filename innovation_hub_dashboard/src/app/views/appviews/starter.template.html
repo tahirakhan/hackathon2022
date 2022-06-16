@@ -7,8 +7,6 @@
     background-color: #23c6c8;
     color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
   }
   .release-bar-box {
     /* padding: 0;
@@ -63,10 +61,10 @@
       class="col-md-2 ibox-content"
       style="padding-left: 45px; background-color: inherit !important"
     >
-      <h2>Releases <i class="fa fa-solid fa-arrow-right"></i></h2>
-      <h2 style="color: #1ab394">
-        Teams <i class="fa fa-solid fa-arrow-down"></i>
-      </h2>
+      <h1>Releases <i style="font-size: 15px;" class="fa fa-solid fa-arrow-right"></i></h1>
+      <h1 style="color: #1ab394">
+        Teams <i style="font-size: 15px;" class="fa fa-solid fa-arrow-down"></i>
+      </h1>
     </div>
     <!-- RELEASES -->
     <div *ngFor="let release of releases" class="col-md-2">
@@ -75,7 +73,7 @@
           class="ibox-content"
           style="background-color: inherit !important; padding-left: 1px"
         >
-          <h1 class="no-margins">{{ release.name }}</h1>
+          <h1 class="no-margins"> <i class="fa fa-random"></i> {{ release.name }}</h1>
         </div>
 
         <div class="ibox-title">
@@ -118,10 +116,8 @@
             white-space: nowrap;
             text-overflow: ellipsis;
             width: 120px;
-            display: inline-block;
-          "
-          >{{team.name}}</span
-        >
+            display: inline-block;"><i class="fa fa-group" style="padding-right: 5px;"></i>{{team.name}}
+        </span>
       </div>
       <!-- ITEMS -->
       <div style="display: grid" class="row no-gutters">
