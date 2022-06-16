@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
   try {
     var t = await getTeamsList();
     var teamList = t.map((team) => team.teamName);
+
     var teams = teamList;
     var result = [];
     try {
@@ -52,6 +53,7 @@ router.get("/", async (req, res) => {
             counter++;
             if (counter === teamSize) {
               console.log("+++++++++++++", result.length);
+              result = result.sort((a, b) => a.name?.localeCompare(b.name));
               res.status(200).json({ result });
             }
           })
@@ -122,6 +124,7 @@ router.get("/backlog", async (req, res) => {
             counter++;
             if (counter === teamSize) {
               console.log("+++++++++++++", result.length);
+              result = result.sort((a, b) => a.name?.localeCompare(b.name));
               res.status(200).json({ result });
             }
           })
