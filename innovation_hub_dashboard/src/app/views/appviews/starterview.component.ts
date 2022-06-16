@@ -16,106 +16,7 @@ public selectedTab = 'tab-1';
 public currentBacklog;
 
 modalRef: BsModalRef;
-public constructor(private modalService: BsModalService, public genericService: GenericService) {
-  // this.releases = [
-  //   {
-  //     name: 'RC-2022-3',
-  //     earlyAccess: '22 April',
-  //     productionRelease: '22 April'
-  //   },
-  //   {
-  //     name: 'RC-2022-4',
-  //     earlyAccess: '22 April',
-  //     productionRelease: '22 April'
-  //   },
-  //   {
-  //     name: 'RC-2022-5',
-  //     earlyAccess: '22 April',
-  //     productionRelease: '22 April'
-  //   },
-  //   {
-  //     name: 'RC-2022-6',
-  //     earlyAccess: '22 April',
-  //     productionRelease: '22 April'
-  //   },
-  //   {
-  //     name: 'RC-2022-7',
-  //     earlyAccess: '22 April',
-  //     productionRelease: '22 April'
-  //   },
-  // ]
-  // this.teams = [
-  //   {
-  //     name: 'team 1',
-  //     items: [
-  //       {
-  //         name: 'Item1',
-  //         labels: ['Rc-2020-1', 'Rc-2020-2']
-  //       },
-  //       {
-  //         name: 'Item2',
-  //         labels: ['Rc-2020-1']
-  //       },
-  //       {
-  //         name: 'Item3',
-  //         labels: ['Rc-2020-3']
-  //       },
-  //       {
-  //         name: 'Item4',
-  //         labels: ['Rc-2020-2']
-  //       },
-  //     ]
-  //   },
-  //   {
-  //     name: 'team 2',
-  //     items: [
-  //       {
-  //         name: 'Item1',
-  //         labels: ['Rc-2020-1', 'Rc-2020-2']
-  //       },
-  //       {
-  //         name: 'Item2',
-  //         labels: ['Rc-2020-1']
-  //       },
-  //     ]
-  //   },
-  //   {
-  //     name: 'team 3',
-  //     items: [
-  //       {
-  //         name: 'Item1',
-  //         labels: ['Rc-2020-1', 'Rc-2020-2']
-  //       },
-  //       {
-  //         name: 'Item2',
-  //         labels: ['Rc-2020-1']
-  //       },
-  //     ]
-  //   },
-  //   {
-  //     name: 'team 4',
-  //     items: [
-  //       {
-  //         name: 'Item1',
-  //         labels: ['Rc-2020-1']
-  //       },
-  //       {
-  //         name: 'Item2',
-  //         labels: ['Rc-2020-2']
-  //       },
-  //       {
-  //         name: 'Item3',
-  //         labels: ['Rc-2020-3']
-  //       },
-  //       {
-  //         name: 'Item4',
-  //         labels: ['Rc-2020-4']
-  //       },
-  //     ]
-  //   },
-  // ];
-  // this.nav = document.querySelector('nav.navbar');
-}
+public constructor(private modalService: BsModalService, public genericService: GenericService) {}
 
 openModal(template: TemplateRef<any>, teamName: string) {
   this.genericService.getTeamDetails().subscribe((res: any) => {
@@ -145,17 +46,11 @@ public ngOnInit():any {
 
 tabClicked(tabId) {
   this.selectedTab = tabId;
-  // if (this.selectedTab === 'tab-2') {
-  //   this.getBacklog();
-  // }
 }
 
 getBacklog() {
   this.genericService.getBacklog(this.teamData.teamName).subscribe((res: any) => {
     this.currentBacklog = res.result[0];
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-    console.log('currentBacklog', this.currentBacklog);
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
   })
 }
 

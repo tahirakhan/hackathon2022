@@ -180,7 +180,7 @@
                       <div *ngFor="let role of teamData.roles; let i = index" class="dd" id="nestable2">
                         <ol class="dd-list">
                           <li class="dd-item" data-id="1">
-                            <div class="dd-handle">
+                            <div class="dd-handle" style="cursor: unset">
                               <span class="label label-info"
                                 ><i class="fa fa-users"></i
                               ></span>
@@ -191,7 +191,7 @@
                             </div>
                             <ol class="dd-list">
                               <li *ngFor="let resource of role.resources" class="dd-item" data-id="2">
-                                <div class="dd-handle">
+                                <div class="dd-handle" style="cursor: unset">
                                   <span class="label label-info"
                                     ><i class="fa fa-cog"></i
                                   ></span>
@@ -220,7 +220,11 @@
                             <tbody>
                             <tr *ngFor="let currentBacklog of currentBacklog?.items; let i = index">
                                 <td>{{ i + 1 }}</td>
-                                <td>{{currentBacklog.key}}</td>
+                                <td>
+                                  <a href="https://smartoci.atlassian.net/browse/{{currentBacklog.key}}">
+                                    {{currentBacklog.key}}
+                                  </a>
+                                </td>
                                 <td>{{currentBacklog.name}}</td>
                             </tr>
                             </tbody>
