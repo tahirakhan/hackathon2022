@@ -1,13 +1,16 @@
 package com.innovationhub.googlesheetdataservice.modal;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TeamDto {
 
   private String teamName;
-  private List<Resource> resources;
+  private String boardId;
+  private List<HiringNeeds> hiringNeeds = new ArrayList<>();
+  private List<ResourceWithRole> roles;
 
   public String getTeamName() {
     return teamName;
@@ -17,12 +20,29 @@ public class TeamDto {
     this.teamName = teamName;
   }
 
-  public List<Resource> getResources() {
-    return resources;
+  public String getBoardId() {
+    return boardId;
   }
 
-  public void setResources(
-      List<Resource> resources) {
-    this.resources = resources;
+  public void setBoardId(String boardId) {
+    this.boardId = boardId;
+  }
+
+  public List<HiringNeeds> getHiringNeeds() {
+    return hiringNeeds;
+  }
+
+  public void setHiringNeeds(
+      List<HiringNeeds> hiringNeeds) {
+    this.hiringNeeds = hiringNeeds;
+  }
+
+  public List<ResourceWithRole> getRoles() {
+    return roles;
+  }
+
+  public void setRoles(
+      List<ResourceWithRole> roles) {
+    this.roles = roles;
   }
 }

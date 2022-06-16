@@ -12,6 +12,8 @@ public class TeamDao {
   private String resource;
   private String role;
   private String lead;
+  private String hiring;
+  private String boardId;
 
   public String getId() {
     return id;
@@ -51,5 +53,21 @@ public class TeamDao {
 
   public void setLead(String lead) {
     this.lead = lead;
+  }
+
+  public String getHiring() {
+    return hiring;
+  }
+
+  public void setHiring(String hiring) {
+    this.hiring = hiring;
+  }
+
+  public String getBoardId() {
+    return boardId;
+  }
+
+  public void setBoardId(String boardId) {
+    this.boardId = boardId;
   }
 }
