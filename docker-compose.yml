@@ -1,0 +1,31 @@
+version: "2"
+services:
+  google-sheet-data-service:
+    build:
+      dockerfile: ./google-sheet-data-service/Dockerfile
+    restart: always
+    build: .
+    expose:
+      - "4000"
+    networks:
+      - app-network
+
+  vroozi-jirapai:
+    container_name: vroozi-jirapi
+    build:
+      dockerfile: ./vroozi-jirapai/Dockerfile
+    restart: always
+    build: .
+    expose:
+      - "4000"
+    ports:
+      - "4000:4000"
+    links:
+      - google-sheet-data-service
+    networks:
+      - app-network
+ 
+
+networks:
+  app-network:
+    driver: bridge       

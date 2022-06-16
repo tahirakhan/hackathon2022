@@ -1,0 +1,16 @@
+com/innovationhub/googlesheetdataservice/modal/ResourceWithRole.class
+com/innovationhub/googlesheetdataservice/modal/Release.class
+com/innovationhub/googlesheetdataservice/modal/HiringNeeds.class
+com/innovationhub/googlesheetdataservice/modal/Resource.class
+com/innovationhub/googlesheetdataservice/controller/BacklogController.class
+com/innovationhub/googlesheetdataservice/controller/TeamsController.class
+com/innovationhub/googlesheetdataservice/repository/TeamRepository.class
+com/innovationhub/googlesheetdataservice/service/TeamService.class
+com/innovationhub/googlesheetdataservice/controller/ReleasesController.class
+com/innovationhub/googlesheetdataservice/modal/TeamDao.class
+com/innovationhub/googlesheetdataservice/repository/ReleasesRepository.class
+com/innovationhub/googlesheetdataservice/service/ReleasesService.class
+com/innovationhub/googlesheetdataservice/GoogleSheetDataServiceApplication.class
+com/innovationhub/googlesheetdataservice/service/ReleasesServiceImpl.class
+com/innovationhub/googlesheetdataservice/modal/TeamDto.class
+com/innovationhub/googlesheetdataservice/service/TeamServiceImpl.class
