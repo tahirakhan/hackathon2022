@@ -11,7 +11,9 @@ public class Release {
   @Id
   private String id;
   private Double order;
-  private String release;
+  private String name;
+  private String earlyAccess;
+  private String productionRelease;
 
   public String getId() {
     return id;
@@ -30,11 +32,27 @@ public class Release {
     this.order = order;
   }
 
-  public String getRelease() {
-    return release;
+  public String getName() {
+    return name;
   }
 
-  public void setRelease(String release) {
-    this.release = release;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getEarlyAccess() {
+    return earlyAccess;
+  }
+
+  public void setEarlyAccess(String earlyAccess) {
+    this.earlyAccess = earlyAccess;
+  }
+
+  public String getProductionRelease() {
+    return productionRelease;
+  }
+
+  public void setProductionRelease(String productionRelease) {
+    this.productionRelease = productionRelease;
   }
 }
