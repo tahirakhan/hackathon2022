@@ -11,6 +11,7 @@ import com.innovationhub.googlesheetdataservice.modal.TeamDao;
 import com.innovationhub.googlesheetdataservice.modal.TeamDto;
 import com.innovationhub.googlesheetdataservice.repository.TeamRepository;
 import java.math.BigDecimal;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -78,8 +79,8 @@ public class TeamServiceImpl implements TeamService {
         }).collect(Collectors.toList()));
       }
       return teamDto;
-    }).collect(Collectors.toList());
-
+    }).sorted(Comparator.comparing(TeamDto::getTeamName))
+        .collect(Collectors.toList());
     return teamDtos;
   }
 }
