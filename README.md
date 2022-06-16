@@ -5,17 +5,15 @@ There are three applications that run to make this dashboard work
 
 clone https://github.com/tahirakhan/hackathon2022
 
+
 # API To get data from the Google Sheek and webhook
 
-.....................................
 cd google-sheet-data-service
 mvn clean compile package
 
 mvn spring-boot:run
 
 # Jira Integration API that communicate with Jira
-
-.....................................
 cd ..
 cd vroozi-jiraapi
 npm install
@@ -28,8 +26,6 @@ cd ..
 npm start
 
 # Frontend application which renders the dashboard
-
-.....................................
 cd ..
 cd innovation_hub_dashboard
 npm install
