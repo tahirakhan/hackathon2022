@@ -239,6 +239,7 @@
                 <div id="tab-3" class="tab-pane active" [class.active]="selectedTab === 'tab-3'">
                   <div class="ibox">
                     <div class="ibox-content">
+                      <p *ngIf="!teamData?.hiringNeeds.length">There are no hiring needs for this team</p>
                       <div *ngFor="let hiringNeed of teamData?.hiringNeeds; let i = index" class="dd" id="nestable2">
                         <ol class="dd-list">
                           <li class="dd-item" data-id="1">
