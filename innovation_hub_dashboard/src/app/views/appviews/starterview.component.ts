@@ -10,131 +10,60 @@ export class StarterViewComponent implements OnDestroy, OnInit  {
 
 public nav:any;
 public releases : any;
-public teams: any;
+public teams: any = [];
 public teamData: any;
+public selectedTab = 'tab-1';
+public currentBacklog;
 
 modalRef: BsModalRef;
-public constructor(private modalService: BsModalService, public genericService: GenericService) {
-  this.releases = [
-    {
-      name: 'Rc-2020-1',
-      earlyAccess: '22 April',
-      productionRelease: '22 April'
-    },
-    {
-      name: 'Rc-2020-2',
-      earlyAccess: '22 April',
-      productionRelease: '22 April'
-    },
-    {
-      name: 'Rc-2020-3',
-      earlyAccess: '22 April',
-      productionRelease: '22 April'
-    },
-    {
-      name: 'Rc-2020-4',
-      earlyAccess: '22 April',
-      productionRelease: '22 April'
-    },
-    {
-      name: 'Rc-2020-5',
-      earlyAccess: '22 April',
-      productionRelease: '22 April'
-    },
-  ]
-  this.teams = [
-    {
-      name: 'team 1',
-      items: [
-        {
-          name: 'Item1',
-          labels: ['Rc-2020-1', 'Rc-2020-2']
-        },
-        {
-          name: 'Item2',
-          labels: ['Rc-2020-1']
-        },
-        {
-          name: 'Item3',
-          labels: ['Rc-2020-3']
-        },
-        {
-          name: 'Item4',
-          labels: ['Rc-2020-2']
-        },
-      ]
-    },
-    {
-      name: 'team 2',
-      items: [
-        {
-          name: 'Item1',
-          labels: ['Rc-2020-1', 'Rc-2020-2']
-        },
-        {
-          name: 'Item2',
-          labels: ['Rc-2020-1']
-        },
-      ]
-    },
-    {
-      name: 'team 3',
-      items: [
-        {
-          name: 'Item1',
-          labels: ['Rc-2020-1', 'Rc-2020-2']
-        },
-        {
-          name: 'Item2',
-          labels: ['Rc-2020-1']
-        },
-      ]
-    },
-    {
-      name: 'team 4',
-      items: [
-        {
-          name: 'Item1',
-          labels: ['Rc-2020-1']
-        },
-        {
-          name: 'Item2',
-          labels: ['Rc-2020-2']
-        },
-        {
-          name: 'Item3',
-          labels: ['Rc-2020-3']
-        },
-        {
-          name: 'Item4',
-          labels: ['Rc-2020-4']
-        },
-      ]
-    },
-  ];
-  // this.nav = document.querySelector('nav.navbar');
+public constructor(private modalService: BsModalService, public genericService: GenericService) {}
+
+openModal(template: TemplateRef<any>, teamName: string) {
+  this.genericService.getTeamDetails().subscribe((res: any) => {
+    this.teamData = res.find(teamData => teamData.teamName === teamName);
+    this.modalRef = this.modalService.show(template);
+    this.getBacklog();
+  })
 }
 
-openModal(template: TemplateRef<any>, team: string) {
-  this.teamData = this.genericService.getTeamDetails(team);
-  if (this.teamData) {
-    this.modalRef = this.modalService.show(template);
-  }
+closeModal() {
+  this.modalRef.hide();
+}
+
+getInitials(nameString , i){
+  const fullName = nameString.split(' ');
+  console.log('fullName', fullName);
+
+  const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
+  return initials.toUpperCase();
 }
 
 public ngOnInit():any {
-  // this.getTeamsData();
-  this.modifyItems();
+  this.getTeamsData();
+  this.getReleases();
   // this.nav.className += " white-bg";
 }
 
+tabClicked(tabId) {
+  this.selectedTab = tabId;
+}
+
+getBacklog() {
+  this.genericService.getBacklog(this.teamData.teamName).subscribe((res: any) => {
+    this.currentBacklog = res.result[0];
+  })
+}
+
 getReleases() {
-  // this.genericService.getReleases().
-};
+  this.genericService.getReleases().subscribe((res: any) => {
+    this.releases = res;
+  })
+}
 
 getTeamsData() {
   this.genericService.getTeams().subscribe((res: any) => {
     this.teams = res.result;
+    this.modifyItems();
   })
 }
 
@@ -150,21 +79,6 @@ getTeamDetails(team: string) {
 
 modifyItems() {
   const releases = this.releases.map(release => release.name);
-  const items = [
-    {
-      name: 'Item1',
-      labels: ['Rc-2020-1', 'Rc-2020-2']
-    },
-    {
-      name: 'Item2',
-      labels: ['Rc-2020-1']
-    },
-    {
-      name: 'Item3',
-      labels: ['Rc-2020-3']
-    },
-  ]
-
   this.teams.forEach(team => {
     team.items.map((item: any) => {
       item.margin = releases.indexOf(item.labels[0]) * 20;
@@ -181,10 +95,6 @@ modifyItems() {
       })
     }
   });
-
-  console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
-  console.log('this.teams', this.teams);
-  console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
 }
 
 }
