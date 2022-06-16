@@ -208,8 +208,8 @@
                 <div id="tab-2" class="tab-pane" [class.active]="selectedTab === 'tab-2'">
                   <div class="ibox ">
                     <div class="ibox-content">
-                      <p *ngIf="!currentBacklog.items.length">There are no backlog items</p>
-                        <table *ngIf="currentBacklog.items.length" class="table table-bordered">
+                      <p *ngIf="!currentBacklog?.items.length">There are no backlog items</p>
+                        <table *ngIf="currentBacklog?.items.length" class="table table-bordered">
                             <thead>
                             <tr>
                                 <th>#</th>
