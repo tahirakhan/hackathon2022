@@ -11,19 +11,19 @@ export class GenericService {
   constructor(private http: HttpClient) {}
 
   getReleases() {
-    return this.http.get(`http://3.128.28.79:7171/sheet-data/releases`)
+    return this.http.get(`http://localhost:7171/sheet-data/releases`)
   }
 
   getTeamDetails() {
-    return this.http.get(`http://3.128.28.79:7171/sheet-data/teams`);
+    return this.http.get(`http://localhost:7171/sheet-data/teams`);
   }
 
   getTeams() {
-    return this.http.get(`http://3.128.28.79:4000/api/issues`);
+    return this.http.get(`http://localhost:4000/api/issues`);
   }
 
   getBacklog(team) {
-    return this.http.get(`http://3.128.28.79:4000/api/issues/backlog?team=${team}`)
+    return this.http.get(`http://localhost:4000/api/issues/backlog?team=${team}`)
   }
 
 }
