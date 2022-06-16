@@ -127,7 +127,9 @@
           [ngStyle]="{width: item.width + '%', marginLeft: item.margin + '%'}"
           [class.hide-custom]="item.hide === true"
         >
+        <a href="https://smartoci.atlassian.net/browse/{{item.key}}" target="_blank" style="color: white;">
           {{ item.name }}
+        </a>
         </div>
       </div>
     </div>
@@ -150,26 +152,18 @@
         <div class="ibox">
           <div class="ibox-content">
             <div class="clients-list">
-              <div class="ibox-title" style="text-align: center; padding-bottom: 10px">
-                <span class="label-primary float-right" style="font-size: 10px;
-                padding: 10px;
-                margin-top: 5px;
-                cursor: pointer;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                width: 120px;
-                display: inline-block;">{{ teamData.teamName }}</span>
+              <div class="ibox-title" style="text-align: left; padding-bottom: 10px">
+                <h2>{{ teamData.teamName }}</h2>
               </div>
               <ul class="nav nav-tabs">
                 <li>
                   <a class="nav-link active" [class.active]="selectedTab === 'tab-1'" data-toggle="tab" (click)="tabClicked('tab-1')"
-                    ><i class="fa fa-user"></i> Roles</a
+                    ><i class="fa fa-user"></i> Team Members</a
                   >
                 </li>
                 <li>
                   <a class="nav-link" data-toggle="tab" [class.active]="selectedTab === 'tab-2'" (click)="tabClicked('tab-2')"
-                    ><i class="fa fa-briefcase"></i> Backlog</a
+                    ><i class="fa fa-tasks"></i> Backlog</a
                   >
                 </li>
               </ul>
@@ -180,20 +174,17 @@
                       <div *ngFor="let role of teamData.roles; let i = index" class="dd" id="nestable2">
                         <ol class="dd-list">
                           <li class="dd-item" data-id="1">
-                            <div class="dd-handle" style="cursor: unset">
+                            <div class="dd-handle" style="cursor: unset; font-size: 20px; font-weight: 600;">
                               <span class="label label-info"
                                 ><i class="fa fa-users"></i
                               ></span>
-                              <!-- <div class="circles">
-                                {{ i +1  < 4  ? getInitials(role.name , i) : '+'  +  (role.name.length - i) }}
-                              </div> -->
                               {{role.name}}
                             </div>
                             <ol class="dd-list">
                               <li *ngFor="let resource of role.resources" class="dd-item" data-id="2">
                                 <div class="dd-handle" style="cursor: unset">
                                   <span class="label label-info"
-                                    ><i class="fa fa-cog"></i
+                                    ><i class="fa fa-user"></i
                                   ></span>
                                   <span class="float-right"> {{resource.name}} </span>
                                 </div>
@@ -209,19 +200,19 @@
                   <div class="ibox ">
                     <div class="ibox-content">
                       <p *ngIf="!currentBacklog?.items.length">There are no backlog items</p>
-                        <table *ngIf="currentBacklog?.items.length" class="table table-bordered">
+                        <table *ngIf="currentBacklog?.items.length" class="table table-bordered" style="border-collapse: collapse; border: 1px solid #dee2e6 !important;">
                             <thead>
-                            <tr>
+                            <tr style="border-collapse: collapse; border: 1px solid #dee2e6 !important;">
                                 <th>#</th>
                                 <th>Key</th>
                                 <th>Name</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr *ngFor="let currentBacklog of currentBacklog?.items; let i = index">
+                            <tr *ngFor="let currentBacklog of currentBacklog?.items; let i = index" style="border-collapse: collapse; border: 1px solid #dee2e6 !important;">
                                 <td>{{ i + 1 }}</td>
                                 <td>
-                                  <a href="https://smartoci.atlassian.net/browse/{{currentBacklog.key}}">
+                                  <a href="https://smartoci.atlassian.net/browse/{{currentBacklog.key}}" target="_blank">
                                     {{currentBacklog.key}}
                                   </a>
                                 </td>
@@ -240,51 +231,4 @@
       </div>
     </div>
   </div>
-  <!-- <div class="ibox">
-    <div class="ibox-title">
-        <h5>{{ teamData.name }}</h5>
-    </div> -->
-  <!-- <div class="ibox ">
-      <div class="ibox-content">
-
-          <table class="table table-bordered">
-              <thead>
-              <tr>
-                  <th>#</th>
-                  <th *ngFor="let role of teamData.roles">{{ role.name }}</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let role of teamData.roles">
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-              </tr>
-              <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-              </tr>
-              <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-              </tr>
-              </tbody>
-          </table>
-
-      </div>
-  </div> -->
-  <!-- <div class="ibox-content">
-        <div *ngFor="let role of teamData.roles" class="team-members">
-          <strong>{{ role.name}} :</strong>
-          <span *ngFor="let resource of role.resources; let last = last;">
-            {{ resource.name }}{{last ? '' : ',&nbsp;'}}
-          </span>
-        </div>
-    </div>
-</div> -->
 </ng-template>

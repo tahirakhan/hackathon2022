@@ -28,12 +28,11 @@ openModal(template: TemplateRef<any>, teamName: string) {
 
 closeModal() {
   this.modalRef.hide();
+  this.selectedTab = 'tab-1';
 }
 
 getInitials(nameString , i){
   const fullName = nameString.split(' ');
-  console.log('fullName', fullName);
-
   const initials = fullName.shift().charAt(0) + fullName.pop().charAt(0);
   return initials.toUpperCase();
 }
