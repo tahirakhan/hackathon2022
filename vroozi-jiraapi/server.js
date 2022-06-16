@@ -11,7 +11,7 @@ connectDB();
 const PORT = process.env.PORT || 4000;
 
 app.get("/", (req, res) => {
-  res.status(200).json({ msg: "This is Axiom Ecommerce Platform." });
+  res.status(200).json({ msg: "This is VROOZI Managment Dashboard." });
 });
 
 app.use("/api/issues", require("./routes/issues"));
