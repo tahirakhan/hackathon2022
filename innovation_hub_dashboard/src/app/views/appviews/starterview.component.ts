@@ -123,8 +123,19 @@ openModal(template: TemplateRef<any>, team: string) {
 }
 
 public ngOnInit():any {
+  // this.getTeamsData();
   this.modifyItems();
   // this.nav.className += " white-bg";
+}
+
+getReleases() {
+  // this.genericService.getReleases().
+};
+
+getTeamsData() {
+  this.genericService.getTeams().subscribe((res: any) => {
+    this.teams = res.result;
+  })
 }
 
 
@@ -157,8 +168,18 @@ modifyItems() {
   this.teams.forEach(team => {
     team.items.map((item: any) => {
       item.margin = releases.indexOf(item.labels[0]) * 20;
-      item.width = item.labels.length * 20;
+      item.width = item ? item.labels.length * 20 : releases.length * 20;
     })
+    if (!team.items.length) {
+      team.items.push({
+        hide: true,
+        name: '.'
+      },
+      {
+        hide: true,
+        name: '.'
+      })
+    }
   });
 
   console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');

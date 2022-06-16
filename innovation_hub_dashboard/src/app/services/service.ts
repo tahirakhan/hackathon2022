@@ -8,9 +8,12 @@ export class GenericService {
 
   constructor(private http: HttpClient) {}
 
+  getReleases() {
+    return this.http.get('')
+  }
 
-  getTeamDetails(string) {
-    return {
+  getTeamDetails(team: string) {
+     return {
       name: 'Team 1',
       roles: [
         {
@@ -76,7 +79,11 @@ export class GenericService {
         },
       ]
     }
-    // return this.http.get('')
+  }
+
+
+  getTeams() {
+    return this.http.get('http://3.128.28.79:4000/api/issues');
   }
 
 }
