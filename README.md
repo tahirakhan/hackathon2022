@@ -33,3 +33,4 @@ cd innovation_hub_dashboard
 npm install
 npm start
 ```
+#### Credits: We have used http://webapplayers.com/inspinia_admin-v2.9.4/ Theme for the Front end appliation
