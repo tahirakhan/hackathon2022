@@ -30,12 +30,6 @@ export const ROUTES:Routes = [
     ]
   },
   {
-    path: 'dashboards', component: TopNavigationLayoutComponent,
-    children: [
-      {path: 'dashboard41', component: Dashboard41Component}
-    ]
-  },
-  {
     path: '', component: BasicLayoutComponent,
     children: [
       {path: 'starterview', component: StarterViewComponent}
