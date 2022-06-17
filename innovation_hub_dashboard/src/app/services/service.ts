@@ -11,19 +11,19 @@ export class GenericService {
   constructor(private http: HttpClient) {}
 
   getReleases() {
-    return this.http.get(`http://18.222.220.150:7171/sheet-data/releases`)
+    return this.http.get(`http://devqa18-internal.vroozi.com:7171/sheet-data/releases`)
   }
 
   getTeamDetails() {
-    return this.http.get(`http://18.222.220.150:7171/sheet-data/teams`);
+    return this.http.get(`http://devqa18-internal.vroozi.com:7171/sheet-data/teams`);
   }
 
   getTeams() {
-    return this.http.get(`http://18.222.220.150:4000/api/issues`);
+    return this.http.get(`http://devqa18-internal.vroozi.com:4000/api/issues`);
   }
 
   getBacklog(team) {
-    return this.http.get(`http://18.222.220.150:4000/api/issues/backlog?team=${team}`)
+    return this.http.get(`http://devqa18-internal.vroozi.com:4000/api/issues/backlog?team=${team}`)
   }
 
 }
