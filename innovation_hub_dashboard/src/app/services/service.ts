@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class GenericService {
 
-  baseUrl = 'http://3.128.28.79:4000/api';
+  baseUrl = 'http://devqa18-internal.vroozi.com:4000/api';
 
   constructor(private http: HttpClient) {}
 
